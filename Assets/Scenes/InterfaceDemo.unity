@@ -216,8 +216,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typingNow: 0
-  textSpeed: 0.05
-  blickCursorSpeed: 1
+  textSpeed: 0.04
+  blickCursorSpeed: 0.5
 --- !u!1 &61447783
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,6 +524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbb79e2eb17a7ec4e83a47dcbc257b3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 10724120}
   _moveSpeed: 5
 --- !u!4 &911826788
 Transform:

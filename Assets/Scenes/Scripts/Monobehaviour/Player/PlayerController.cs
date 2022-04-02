@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     private PlayerInput _input;
     private Camera _camera;
     private Rigidbody2D _rigidbody;
+    [SerializeField] private Text text;
 
     [SerializeField][Range(3f, 7f)] private float _moveSpeed = 7f;
 
@@ -14,6 +16,8 @@ public class PlayerController : MonoBehaviour
         _camera = Camera.main;
 
         _input.Player.Roll.performed += _ => { Roll(); };
+
+        _input.Player.ReadText.performed += _ => { TextRead(); };
     }
 
     private void OnEnable() { _input.Enable(); }
@@ -53,6 +57,11 @@ public class PlayerController : MonoBehaviour
     private void Roll()
     {
         // TO DO
+    }
+
+    private void TextRead()
+    {
+        text.GetComponent<TextScript>().say("hello from player");
     }
 
     private Vector2 GetSelfPositionXY() => new Vector2(transform.position.x, transform.position.y);
