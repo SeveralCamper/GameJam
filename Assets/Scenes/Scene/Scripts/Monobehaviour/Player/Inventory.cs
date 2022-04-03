@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -40,16 +39,14 @@ public class Inventory : MonoBehaviour
     [SerializeField] private SpriteRenderer[] _weaponsRendr = new SpriteRenderer[6];
     private Transform _weaponPosition;
     private Transform _dropPointTransform;
-
     private const int _sizeInventoryItems = 3;
-    public int CurrentIndexWeapon = 0;
     private const int _sizeInventoryWeapons = 6;
     [HideInInspector] public UnityEvent<PlayerWeapon> OnEquipWeaponEvent;
 
-    //public int CurrentIndexWeapon { get; private set; }
+    public int CurrentIndexWeapon { get; private set; }
 
     public Inventory(List<InventoryWeaponSlot> weapons) => _weapons = weapons;
-    public GameObject this[int index]
+    public PlayerWeapon this[int index]
     {
         get => _weapons[index].Weapon.Prefab;
     }
@@ -105,7 +102,7 @@ public class Inventory : MonoBehaviour
             CurrentIndexWeapon--;
 
             _weaponsObj[CurrentIndexWeapon].SetActive(true);
-            //OnEquipWeaponEvent?.Invoke(_weaponsObj[CurrentIndexWeapon].GetComponent<PlayerWeapon>());
+            OnEquipWeaponEvent?.Invoke(_weaponsObj[CurrentIndexWeapon].GetComponent<PlayerWeapon>());
         }
     }
 
@@ -118,7 +115,7 @@ public class Inventory : MonoBehaviour
             CurrentIndexWeapon++;
 
             _weaponsObj[CurrentIndexWeapon].SetActive(true);
-            //OnEquipWeaponEvent?.Invoke(_weaponsObj[CurrentIndexWeapon].GetComponent<PlayerWeapon>());
+            OnEquipWeaponEvent?.Invoke(_weaponsObj[CurrentIndexWeapon].GetComponent<PlayerWeapon>());
         }
     }
 
@@ -137,21 +134,21 @@ public class Inventory : MonoBehaviour
 
     private void EquipWeapon(WeaponConfig weapon, bool isReplace = false)
     {
-        GameObject weaponObj = Instantiate(weapon.Prefab, _weaponPosition);
+        PlayerWeapon weaponObj = Instantiate(weapon.Prefab, _weaponPosition);
         SpriteRenderer renderer = weaponObj.GetComponent<SpriteRenderer>();
 
         renderer.sortingOrder = 3;
 
         if (!isReplace)
         {
-            weaponObj.SetActive(false);
+            weaponObj.gameObject.SetActive(false);
 
-            _weaponsObj[_weapons.Count - 1] = weaponObj;
+            _weaponsObj[_weapons.Count - 1] = weaponObj.gameObject;
             _weaponsRendr[_weapons.Count - 1] = renderer;
         }
         else
         {
-            _weaponsObj[CurrentIndexWeapon] = weaponObj;
+            _weaponsObj[CurrentIndexWeapon] = weaponObj.gameObject;
             _weaponsRendr[CurrentIndexWeapon] = renderer;
         }
 

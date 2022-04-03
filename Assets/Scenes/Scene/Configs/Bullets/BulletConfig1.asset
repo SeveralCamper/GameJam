@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af66d747e62d6c541b392772c72aed13, type: 3}
-  m_Name: WeaponConfig
+  m_Script: {fileID: 11500000, guid: 7bd56d9805532b7418b8f568e1877a23, type: 3}
+  m_Name: BulletConfig1
   m_EditorClassIdentifier: 
-  _id: 0
-  _name: Riffle
-  _prefab: {fileID: 5195607254122617591, guid: cfd52e60371378d4fbf6a5f1073fc76d, type: 3}
-  _bulletPrefab: {fileID: 0}
-  _maxDelayAfterShot: 0
+  _damage: 15
+  _critChance: 6
+  _flightSpeed: 5
+  _force: 1

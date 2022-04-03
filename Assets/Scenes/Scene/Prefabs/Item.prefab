@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 6404461769061727849}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -99,7 +99,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.2
 --- !u!114 &6404461769061727848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,6 +114,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectsLM:
     serializedVersion: 2
-    m_Bits: 1
-  _item: {fileID: 11400000, guid: 5da5f1439d74db84d8ab95b820f2fdbf, type: 2}
-  _weapon: {fileID: 0}
+    m_Bits: 64
+  _itemConfig: {fileID: 11400000, guid: 5da5f1439d74db84d8ab95b820f2fdbf, type: 2}
+  _weaponConfig: {fileID: 0}

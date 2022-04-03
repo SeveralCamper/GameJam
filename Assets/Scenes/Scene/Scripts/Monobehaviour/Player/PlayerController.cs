@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,7 +14,6 @@ public class PlayerController : MonoBehaviour
     private PlayerInput _input;
     [HideInInspector] public UnityEvent OnPickUpActionEvent;
     
-
     public static PlayerController Instance { get; private set; }
     public Inventory Inventory => _inventory;
     public PlayerWeapon Weapon => _weapon;
@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
         _animator = GetComponent<Animator>();
 
         _camera = Camera.main;
+        _inventory.OnEquipWeaponEvent.AddListener(ChangeWeapon);
     }
 
     private void OnEnable() { _input.Enable(); }
@@ -47,9 +48,16 @@ public class PlayerController : MonoBehaviour
     {
         Rotate();
         Move();
+
+        if (_input.Player.Shoot.ReadValue<float>() > 0)
+        {
+            _weapon.Shoot();
+        }
     }
 
     private void OnDisable() { _input.Disable(); }
+
+    private void ChangeWeapon(PlayerWeapon newWeapon) { _weapon = newWeapon; }
 
     private void Rotate()
     {

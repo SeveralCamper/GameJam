@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -149,6 +150,20 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84464980f8ef6774b89fa23229794d39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 911826788}
+  _lerpSpeed: 1
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -297,7 +312,7 @@ GameObject:
   - component: {fileID: 911826787}
   - component: {fileID: 911826791}
   - component: {fileID: 911826793}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,7 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbb79e2eb17a7ec4e83a47dcbc257b3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 5
+  _moveSpeed: 3.5
   OnPickUpActionEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -437,12 +452,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  CurrentIndexWeapon: 0
   OnEquipWeaponEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!58 &911826792
-CircleCollider2D:
+--- !u!61 &911826792
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -454,9 +468,19 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0005, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.56}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.08
+  m_Size: {x: 0.2, y: 0.56}
+  m_EdgeRadius: 0
 --- !u!95 &911826793
 Animator:
   serializedVersion: 3
@@ -483,10 +507,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 793294000}
     m_Modifications:
+    - target: {fileID: 5195607253533365279, guid: cfd52e60371378d4fbf6a5f1073fc76d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.084
+      objectReference: {fileID: 0}
+    - target: {fileID: 5195607253533365279, guid: cfd52e60371378d4fbf6a5f1073fc76d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5195607254122617578, guid: cfd52e60371378d4fbf6a5f1073fc76d, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5195607254122617579, guid: cfd52e60371378d4fbf6a5f1073fc76d, type: 3}
+      propertyPath: _weaponConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: 7ad540bea616d2a4caef238765d3ac0f, type: 2}
     - target: {fileID: 5195607254122617590, guid: cfd52e60371378d4fbf6a5f1073fc76d, type: 3}
       propertyPath: m_RootOrder
       value: 0

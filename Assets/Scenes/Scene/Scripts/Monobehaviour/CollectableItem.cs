@@ -5,24 +5,26 @@ public class CollectableItem : MonoBehaviour
 {
     [SerializeField] private LayerMask _objectsLM;
 
-    [SerializeField] private ItemConfig _item;
-    [SerializeField] private WeaponConfig _weapon;
+    [SerializeField] private ItemConfig _itemConfig;
+    [SerializeField] private WeaponConfig _weaponConfig;
 
     private PlayerController _player;
     private Inventory _inventory;
     private bool _playerInTrigger = false;
+
+    public WeaponConfig WeaponConfig => _weaponConfig;
 
     private void OnDisable() { if (_player) _player.OnPickUpActionEvent.RemoveListener(PickUp); }
 
     private void PickUp()
     {
         if (_inventory == null) { return; }
-        if (_item == null && _weapon == null) return;
+        if (_itemConfig == null && _weaponConfig == null) return;
 
         if (_playerInTrigger && _player)
         {
-            if (_item != null) { _inventory.AddItem(_item); }
-            if (_weapon != null) { _inventory.AddWeapon(_weapon); }
+            if (_itemConfig != null) { _inventory.AddItem(_itemConfig); }
+            if (_weaponConfig != null) { _inventory.AddWeapon(_weaponConfig); }
 
             Destroy(gameObject);
         }

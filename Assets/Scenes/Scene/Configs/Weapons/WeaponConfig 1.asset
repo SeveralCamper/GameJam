@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: 0
   _name: Pistol
-  _prefab: {fileID: 8729787746024300228, guid: 73bb23f9eece8eb4ba465d6935c4ad39, type: 3}
-  _bulletPrefab: {fileID: 0}
-  _maxDelayAfterShot: 0
+  _prefab: {fileID: 3953461706649666812, guid: 73bb23f9eece8eb4ba465d6935c4ad39, type: 3}
+  _bulletPrefab: {fileID: 5831927848821614944, guid: f7d5235771cd96f46a02a8c607498819, type: 3}
+  _maxDelayAfterShot: 0.3
