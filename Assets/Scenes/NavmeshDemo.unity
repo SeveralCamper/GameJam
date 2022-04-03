@@ -1037,7 +1037,7 @@ GameObject:
   - component: {fileID: 2083603447}
   - component: {fileID: 2083603448}
   m_Layer: 0
-  m_Name: Player Clone
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1173,7 +1173,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2083603442}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19136ee0961a4a74abf443345698329d, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ba89269897f56744a6abdb0a2b3faa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 911826788}
+  follow: 1
