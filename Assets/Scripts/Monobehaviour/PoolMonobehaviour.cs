@@ -7,6 +7,7 @@ public class PoolMonobehaviour<T> where T : MonoBehaviour
 
     public T Prefab { get; }
     public Transform Container { get; private set; }
+    public List<T> Pool => _pool;
 
     public PoolMonobehaviour(T prefab, Transform container, int count)
     {
@@ -25,7 +26,7 @@ public class PoolMonobehaviour<T> where T : MonoBehaviour
 
     private T CreateObject(bool defaultState = false)
     {
-        var createdObject = Object.Instantiate(Prefab, Container);
+        var createdObject = Object.Instantiate(Prefab, Container.position, Quaternion.identity);
 
         createdObject.gameObject.SetActive(defaultState);
         _pool.Add(createdObject);
@@ -33,7 +34,7 @@ public class PoolMonobehaviour<T> where T : MonoBehaviour
         return createdObject;
     }
 
-    private bool HasFreeObject(out T obj)
+    private bool HasFreeObject(out T obj, bool state)
     {
         obj = null;
 
@@ -42,7 +43,7 @@ public class PoolMonobehaviour<T> where T : MonoBehaviour
             if (!poolObject.gameObject.activeInHierarchy)
             {
                 obj = poolObject;
-                obj.gameObject.SetActive(true);
+                obj.gameObject.SetActive(state);
 
                 return true;
             }
@@ -51,9 +52,19 @@ public class PoolMonobehaviour<T> where T : MonoBehaviour
         return false;
     }
 
-    public T GetObject()
+    public T GetObject(bool state)
     {
-        if (HasFreeObject(out var poolObject)) { return poolObject; }
-        else { return CreateObject(true); }
+        if (HasFreeObject(out var poolObject, state)) { return poolObject; }
+        else { return CreateObject(state); }
+    }
+
+    public static PoolMonobehaviour<T> DestroyPool(ref PoolMonobehaviour<T> pool)
+    {
+        foreach (T obj in pool.Pool)
+        {
+            Object.Destroy(obj);
+        }
+
+        return pool;
     }
 }
