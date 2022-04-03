@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: WallWithBrokenLight_001_72x144
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 193acb0fcc29c0c488997423765d6c40, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1213caf1d044140468415a04021edff6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
