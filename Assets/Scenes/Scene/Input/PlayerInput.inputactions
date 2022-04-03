@@ -6,15 +6,6 @@
             "id": "c3da089a-713b-4113-ad0b-8b3160836e62",
             "actions": [
                 {
-                    "name": "Roll",
-                    "type": "Button",
-                    "id": "70fc7e4e-362c-4437-a82b-deb37a47fd97",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Movement",
                     "type": "Value",
                     "id": "6bd78143-93da-4799-ba0b-e63ac311a045",
@@ -40,31 +31,36 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "PickUp",
+                    "type": "Button",
+                    "id": "067b0273-aeef-4c6e-87c8-690d40e03b98",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "TakePreviousWeapon",
+                    "type": "Button",
+                    "id": "5450cc25-9b73-4f30-860b-01cf59a4e5fc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "TakeNextWeapon",
+                    "type": "Button",
+                    "id": "6e691b5c-6670-4a3d-aaca-36eaccaf8e2a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "078db79c-8c8b-4cd9-9668-101d85c858c9",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Roll",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3ab2b89c-1866-4f0e-b2e2-3f4324395142",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Roll",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "2D Vector",
                     "id": "081974db-f1f1-4c49-96bf-ac47b672300c",
@@ -155,12 +151,78 @@
                 },
                 {
                     "name": "",
-                    "id": "afcfc4b8-38e7-4769-88c8-995a91b7d042",
-                    "path": "<Gamepad>/rightTrigger",
+                    "id": "27b88361-a91b-4088-9c45-4bd6397b2948",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a1e42a97-ffb5-44ef-9666-48e0cee3d7bb",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "PickUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8523699d-9089-41d3-84fb-623f75b10ef9",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "PickUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9c0623ba-b78a-4ccc-aadf-daf129ab4f32",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "TakePreviousWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3d169068-0d9d-4fde-9e90-ee74fed10639",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "TakePreviousWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "81b4ba67-d680-4e04-826e-f620b85a033c",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "TakeNextWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0a88dc42-05d0-45b0-96cc-ca7818d31872",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "TakeNextWeapon",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
