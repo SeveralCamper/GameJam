@@ -40,7 +40,7 @@ public class Inventory : MonoBehaviour
     private Transform _weaponPosition;
     private Transform _dropPointTransform;
     private const int _sizeInventoryItems = 3;
-    private const int _sizeInventoryWeapons = 6;
+    private const int _sizeInventoryWeapons = 2;
     [HideInInspector] public UnityEvent<PlayerWeapon> OnEquipWeaponEvent;
 
     public int CurrentIndexWeapon { get; private set; }
@@ -119,19 +119,6 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void ChangeWeapon()
-    {
-        if (_weapons.Count > 1)
-        {
-            _weaponsObj[CurrentIndexWeapon].SetActive(false);
-
-            CurrentIndexWeapon = (CurrentIndexWeapon + 1 > _weapons.Count - 1) ? 0 : CurrentIndexWeapon + 1;
-
-            _weaponsObj[CurrentIndexWeapon].SetActive(true);
-            //OnEquipWeaponEvent?.Invoke(_weaponsRendr[CurrentIndexWeapon]);
-        }
-    }
-
     private void EquipWeapon(WeaponConfig weapon, bool isReplace = false)
     {
         PlayerWeapon weaponObj = Instantiate(weapon.Prefab, _weaponPosition);
@@ -150,6 +137,8 @@ public class Inventory : MonoBehaviour
         {
             _weaponsObj[CurrentIndexWeapon] = weaponObj.gameObject;
             _weaponsRendr[CurrentIndexWeapon] = renderer;
+
+            OnEquipWeaponEvent?.Invoke(weaponObj.gameObject.GetComponent<PlayerWeapon>());
         }
 
         weaponObj.GetComponent<CircleCollider2D>().enabled = false;

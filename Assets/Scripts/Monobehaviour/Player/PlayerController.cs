@@ -21,11 +21,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        _input = new PlayerInput();
-
-        _input.Player.PickUp.performed += _ => { OnPickUpActionEvent?.Invoke(); };
-        _input.Player.TakePreviousWeapon.performed += _ => { _inventory.TakePreviousWeapon(); };
-        _input.Player.TakeNextWeapon.performed += _ => { _inventory.TakeNextWeapon(); };
+        InputInitialize();
     }
 
     private void Start()
@@ -33,10 +29,7 @@ public class PlayerController : MonoBehaviour
         if (Instance == null) { Instance = this; }
         else if (Instance == this) { Destroy(gameObject); }
 
-        _weapon = transform.GetChild(0).transform.GetChild(0).GetComponent<PlayerWeapon>();
-        _inventory = GetComponent<Inventory>();
-        _rigidbody = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
+        GetComponents();
 
         _camera = Camera.main;
         _inventory.OnEquipWeaponEvent.AddListener(ChangeWeapon);
@@ -74,7 +67,8 @@ public class PlayerController : MonoBehaviour
         }
 
         transform.rotation = Quaternion.Euler(0, rotateY, 0);
-        _animator.SetFloat("RotateZ", rotateZ);
+
+        if (_animator != null) { _animator.SetFloat("RotateZ", rotateZ); }
     }
 
     private void Move()
@@ -82,9 +76,30 @@ public class PlayerController : MonoBehaviour
         if (_rigidbody == null) { return; }
 
         Vector2 direction = _input.Player.Movement.ReadValue<Vector2>();
+        float movementSpeed = Mathf.Abs(direction.x + direction.y);
+
         _rigidbody.velocity = new Vector2(direction.x * _moveSpeed, direction.y * _moveSpeed);
+
+        if (_animator != null) { _animator.SetFloat("MovementSpeed", movementSpeed); }
     }
 
     private Vector2 GetSelfPositionXY() => new Vector2(transform.position.x, transform.position.y);
+
+    private void InputInitialize()
+    {
+        _input = new PlayerInput();
+
+        _input.Player.PickUp.performed += _ => { OnPickUpActionEvent?.Invoke(); };
+        _input.Player.TakePreviousWeapon.performed += _ => { _inventory.TakePreviousWeapon(); };
+        _input.Player.TakeNextWeapon.performed += _ => { _inventory.TakeNextWeapon(); };
+    }
+
+    private void GetComponents()
+    {
+        _weapon = transform.GetChild(0).transform.GetChild(0).GetComponent<PlayerWeapon>();
+        _inventory = GetComponent<Inventory>();
+        _rigidbody = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
+    }
 }
 // if (_input.Player.Roll.ReadValue<float>() > 0) {} // pressed button check

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af66d747e62d6c541b392772c72aed13, type: 3}
-  m_Name: WeaponConfig
+  m_Name: FlashLight
   m_EditorClassIdentifier: 
-  _id: 1
-  _name: Riffle
-  _prefab: {fileID: 5195607254122617576, guid: cfd52e60371378d4fbf6a5f1073fc76d, type: 3}
-  _bulletPrefab: {fileID: 5831927848821614944, guid: 70b43c352b6744046ad50fed2af42dcc, type: 3}
-  _maxDelayAfterShot: 0.3
+  _id: 2
+  _name: Flash Light
+  _prefab: {fileID: 313692166, guid: bbd1e19dfc015414bb952926c4abd4cf, type: 3}
+  _bulletPrefab: {fileID: 0}
+  _maxDelayAfterShot: 0

@@ -23,8 +23,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1596867207}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.57719994, y: 0.041103363, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8729787746024300226}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 8729787746024300224}
   - component: {fileID: 3953461706649666812}
   - component: {fileID: 8729787746024300227}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Weapon1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ Transform:
   m_GameObject: {fileID: 8729787746024300228}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.02, y: 0.58, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1596867208}
   m_Father: {fileID: 0}
@@ -104,9 +104,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.6067799, g: 1, b: 0.34509802, a: 1}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 5957986398680220140, guid: 1bd758592e1dc2c4e8029407f67dbff3, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -131,7 +131,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.1
+  m_Radius: 0.5
 --- !u!114 &3953461706649666812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +158,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectsLM:
     serializedVersion: 2
-    m_Bits: 1
-  _item: {fileID: 0}
-  _weapon: {fileID: 11400000, guid: ad34605ff6e091f4984f6b2755312e58, type: 2}
+    m_Bits: 128
+  _itemConfig: {fileID: 0}
+  _weaponConfig: {fileID: 11400000, guid: ad34605ff6e091f4984f6b2755312e58, type: 2}
